@@ -1,10 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
-
-  <access origin="http://200.26.189.133*"/>
-   <access origin="http://200.26.189.134*"/>
-    <access origin="http://movivet.tk*"/>
-      <log level="DEBUG"/>
-	
 <widget id="net.greensnacks.consejos" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Movivet</name> <!-- nombre de la app, lo que aparece en el celu -->
     <description>
@@ -13,7 +7,7 @@
     <author email="essteffi@hotmail.com" href="http://movivet.tk"><!-- mail y sitio del creador de la app-->
         Hernan Beati
     </author>
-    <preference name="permissions" value="none" />
+	<preference name="permissions" value="none" />
     <preference name="phonegap-version" value="3.7.0" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
