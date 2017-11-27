@@ -1,6 +1,8 @@
 $(document).bind('deviceready', function(){
     $(function(){
+		alert("entro");
         $('form').submit(function(){
+			alert("entrodatadatos");
             var dataID = $(this).parent().attr('data-datos-id');
             var postData = $(this).serialize();
             $.ajax({
@@ -10,8 +12,8 @@ $(document).bind('deviceready', function(){
                 url: 'http://movivet.tk/app/guardar.php',
                 success: function(data){
                     console.log(data);
-                    $('#email').val('$email');
-                    $('#comment').val('$comment');
+                    $('#email').val('');
+                    $('#comment').val('');
 					alert('Tu comentario fue agregado');
                 },
                 error: function(data){
