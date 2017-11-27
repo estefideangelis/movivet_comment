@@ -6,13 +6,13 @@
 <script src="jquery-1.12.2.min.js"></script>
 <script src="jquery.mobile-1.4.5.min.js"></script>
  
-<access origin="http://200.26.189.133*"/>
+<!--<access origin="http://200.26.189.133*"/>
     <access origin="http://200.26.189.134*"/>
     <access origin="http://movivet.tk*"/>
     <access origin="http://host133.baires01.com.ar:2083/*" subdomains="true"/>
     <log level="DEBUG"/>
     
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />-->
     
     
 
@@ -24,7 +24,15 @@
 <link rel="stylesheet" href="jquery.mobile-1.4.5.css">
 <link rel="stylesheet" href="tema_movivet2.css"/>
 
-<script type="text/javascript" src="js/post.js"></script><script type="text/javascript">// <![CDATA[
+<style><!--
+        label, b {
+            display: block;
+        }
+     
+--></style>
+
+<script type="text/javascript" src="js/post.js"></script>
+<script type="text/javascript">// <![CDATA[
         function onBodyLoad() {
             document.addEventListener("deviceready",onDeviceReady,false);
         }
@@ -243,10 +251,14 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 <img src="images/banio.jpg" style="width:100%;"/>
 
 <div class="contenedor-inputs">
-<div id="datos-1" data-datos-id="1">
-<form>
- <input id="email" placeholder="email" type="email" name="email" />
- <textarea id="comentario" cols="30" placeholder="comentario" name="comentario" rows="10"></textarea>
+<div id="datos-1" data-datos-id="1"><form><label for="email">
+ <b>Email</b>
+ <input id="email" type="email" name="email" />
+ </label>
+ <label for="comentario">
+ <b>Comentario</b>
+ <textarea id="comentario" cols="30" name="comentario" rows="10"></textarea>
+ </label>
  <input type="submit" value="Enviar" /></form></div>
  </div>
 
@@ -349,33 +361,6 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="app_movivet.js"></script>
 
-<script>
-$(document).bind('deviceready', function(){
-    $(function(){
-        $('form').submit(function(){
-            var dataID = $(this).parent().attr('data-datos-id');
-            var postData = $(this).serialize();
-            $.ajax({
-                type: 'POST',
-                data: postData+'&lid='+dataID,
-                // cargamos la url del servidor externo
-                url: 'http://movivet.tk/app/guardar.php',
-                success: function(data){
-                    console.log(data);
-                    $('#email').val('');
-                    $('#comentario').val('');
-					alert('Tu comentario fue agregado');
-                },
-                error: function(data){
-                    console.log(data);
-                    alert('Ocurrio un error al enviar tu comentario');
-                }
-            });
-            return false;
-        });
-    });
-});
-</script>
 
 
 
