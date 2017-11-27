@@ -10,8 +10,8 @@ $(document).bind('deviceready', function(){
                 url: 'http://movivet.tk/app/guardar.php',
                 success: function(data){
                     console.log(data);
-                    $('#email').val('');
-                    $('#comentario').val('');
+                    $('#email').val('$email');
+                    $('#comment').val('$comment');
 					alert('Tu comentario fue agregado');
                 },
                 error: function(data){
