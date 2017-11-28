@@ -18,6 +18,8 @@
 <!--<script src="jquery-1.12.2.min.js"></script>
 <script src="jquery.mobile-1.4.5.min.js"></script>
 <!--<script src="inicio.js"></script>-->
+<link rel="stylesheet" type="text/css" href="./jquery.datetimepicker.css"/>
+<script type="text/javascript" src="app.js"></script>
 <link rel="stylesheet" href="jquery.mobile-1.4.5.css">
 <link rel="stylesheet" href="tema_movivet2.css"/>
 
@@ -29,12 +31,12 @@
 --></style>
 
 <script type="text/javascript" src="js/post.js"></script>
-<script type="text/javascript">// <![CDATA[
+<script type="text/javascript">
         function onBodyLoad() {
             document.addEventListener("deviceready",onDeviceReady,false);
         }
  
-// ]]></script>
+</script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>
@@ -43,7 +45,10 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
         $.getJSON("http://movivet.tk/app/listaReservas.php", function(resultados){ 
             for(i=0; i<resultados.length; i++){
 			$.each(resultados[i], function(i, campo){ <!-- van a entrar dos datos a esta funcion, o sea le doy do parametros i y campo ------ para relacionar con el ecommerce, pongo el link de listaproductos)-->
-                $("#lista").append(" "+campo+" "+"-//-"); <!-- que me agregue el dato campo y un espacio en blanco, con el <p> crea un párrafo y crea espacio en blacno uno abajo del otro -->
+			
+				$("#lista").append(li);
+
+                 <!-- $("#lista").append(" "+campo+" "+"-//-");que me agregue el dato campo y un espacio en blanco, con el <p> crea un párrafo y crea espacio en blacno uno abajo del otro -->
             });
 			} <!-- fin bucle for-->
         });
@@ -107,10 +112,10 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 
 
 
-<a href="#inicio" style="text-transform: uppercase;" class="ui-btn ui-corner-all ui-btn-c ">Iniciar sesión</a>
+<!--<a href="#inicio" style="text-transform: uppercase;" class="ui-btn ui-corner-all ui-btn-c ">Iniciar sesión</a>-->
 <a href="#servicios" style="text-transform: uppercase;" class="ui-btn ui-corner-all ui-btn-c ">Nuestros servicios</a>
-<a href="#reservar" style="text-transform: uppercase;" class="ui-btn ui-corner-all ui-btn-c ">Reservar</a>
-<a href="#ver" style="text-transform: uppercase;" class="ui-btn ui-corner-all ui-btn-c ">Mi cuenta</a>
+<a href="#reservar" style="text-transform: uppercase;" class="ui-btn ui-corner-all ui-btn-c ">Eventos</a>
+<a href="#ver" style="text-transform: uppercase;" class="ui-btn ui-corner-all ui-btn-c ">Reservas del mes</a>
 
 </div>
 
@@ -145,27 +150,27 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 </div>
 
 
-<div  data-role="page" id="inicio" class="content2" data-theme="c">
+<!--<div  data-role="page" id="inicio" class="content2" data-theme="c">
 
 
-<div data-role="header" data-theme="c">
+<div data-role="header" data-theme="c">-->
 
-<a href="#inicio1" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
+<!--<a href="#inicio1" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext"></a>
 
 
 </div>
 <img src="images/3.jpg " style="width:100%;"/>
-<!--CONTENT-->
-<div  id="mydiv" data-role="content" data-theme="c"  class="mydiv">
+<!--CONTENT-<div  id="mydiv" data-role="content" data-theme="c"  class="mydiv">->
 
-<!--HEADER-->
-<div data-role="navbar" data-theme="c">
+
+<!--HEADER<div data-role="navbar" data-theme="c">
     <ul>
 <li><a href="#inicio" class="ui-btn-c ui-btn-active ui-state-persist ui-corner-left" style="margin-left:30px;">Ingresar</a></li><li><a href="#registrar" class="ui-btn-c" style="margin-right:30px;">Registrarse</a></li>
     </ul>
 </div>
 
-<h1 id="tituloBienvenido">   </h1>    
+<h1 id="tituloBienvenido">   </h1>-->
+   
         
                   
                   
@@ -174,7 +179,7 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
   <input type="submit" value="Login" id="botonLogin">
        
     </form>-->
-
+<!--
 <form  id="formulario" method="post" onSubmit="return validar();">
 <center><h2>INICIAR SESIÓN</h2></center>
 <div class="contenedor-inputs1">
@@ -197,7 +202,7 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 <center><p>Registrate y conocé los beneficios de Movivet<p></center>
 </div>
 
-</div>
+</div>-->
 
 <div id="reservar" data-role="page" data-theme="c" >
 	<div data-role="header" data-theme="c">
@@ -222,7 +227,7 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 </div>
 </form>
 
-<button id="traer">Ver fechas no disponibles este mes</button>
+<button id="traer">Ver reservas del mes</button>
 <button id="borrar">Cerrar</button>
 <div id="lista"></div>
     </div> 
@@ -247,7 +252,14 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 <img src="images/3.jpg" style="width:100%;"/>
 <img src="images/banio.jpg" style="width:100%;"/>
 
-<div class="contenedor-inputs">
+   
+        <ul id="lista_reservas" data-role="listview" data-filter="true" data-filter-placeholder="Escribe tu nombre de usuario y busca tus reservas..." data-inset="true">
+        </ul>
+	
+
+
+
+<!--	<div class="contenedor-inputs">
 <div id="datos-1" data-datos-id="1"><form><label for="email">
  <b>Email</b>
  <input id="email" type="email" name="email" />
@@ -258,8 +270,7 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
  </label>
  <input type="submit" value="Enviar" /></form></div>
  </div>
-
-<!--	<div class="ui-grid-a" data-role="content" style="margin-top:5%;" data-theme="c">
+ <div class="ui-grid-a" data-role="content" style="margin-top:5%;" data-theme="c">
 <form method="post" onSubmit="return validar();">
 <div class="contenedor-inputs1">
 <input type="text" placeholder="Nombre usuario:" class="user-black" id="nombreUsuario" name="nombreUsuario" data-theme="c required">
@@ -281,11 +292,10 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 </div>
 
 <!---->
-
-
+	
 <!--PAGINA REGISTRAR -->
 
-<div  data-role="page" id="registrar"  data-theme="c">
+<!--<div  data-role="page" id="registrar"  data-theme="c">
 
 
 <div data-role="header" data-theme="c">
@@ -295,10 +305,10 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 
 </div>
 <img src="images/3.jpg " style="width:100%;"/>
-<!--CONTENT-->
-<div data-role="content" data-theme="c" >
+<!--CONTENT<div data-role="content" data-theme="c" >-->
+
 <!--HEADER-->
-<div data-role="navbar" data-theme="c">
+<!--<div data-role="navbar" data-theme="c">
 
     <ul>
 <li><a href="#inicio" class="ui-btn-c" style="margin-left:30px;">Ingresar</a></li><li><a href="#registrar" class="ui-btn-c ui-btn-active ui-state-persist" style="margin-right:30px;">Registrarse</a></li>
@@ -320,17 +330,17 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 
 
 </div>
-</form>
+</form>-->
 
-<!--FOOTER-->
-
-
-
-</div>
+<!--FOOTER</div>
 <div data-role="footer" data-theme="c" style="font-size:13px; margin-top:30px;">
 <center><p>Registrate y conocé los beneficios de Movivet<p></center>
 </div>
 </div>
+
+-->
+
+
 
 
 
@@ -359,7 +369,37 @@ $(document).ready(function(){ <!-- cuando el documento este listo sucede el even
 <script type="text/javascript" src="app_movivet.js"></script>
 
 
+<!-- Java S -->
+<script type="text/javascript">
+// JavaScript Document
+$(function(){
+	$("#cerrar").click(function(){
+		navigator.app.exitApp();
+	});
+	
+	$(document).ready(function(){
+	$.ajax({
+		url: 'http://movivet.tk/app/reservado.php',
+		method: 'GET',
+		type: 'json',
+		success: function(data){
+			$.each(data, function(i, elemento){
+				var li = '<li class="ui-first-child"><a href="#reservado'+data[i].id+'" class="ui-btn ui-btn-icon-right ui-icon-carat-r">' + data[i].nombreUsuario + "-//-" + data[i].fecha +  "-//-" + data[i].hora + '</a></li>';
+				
+				$("#lista_reservas").append(li);
 
+				$("#reservado" + data[i].id ).append(data[i].texto);
+				
+				
+			});
+			
+			
+		}
+		
+		});
+	});
+});
+</script>
 
 
 
