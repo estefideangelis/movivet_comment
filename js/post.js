@@ -1,3 +1,5 @@
+header("Access-Control-Allow-Origin: http://movivet.tk");
+
 $(document).bind('deviceready', function(){
     $(function(){
 		    $('form').submit(function(){
@@ -8,7 +10,7 @@ $(document).bind('deviceready', function(){
 				type: 'POST',
                 data: postData+'&lid='+dataID,
                 // cargamos la url del servidor externo
-                url: 'http://www.movivet.tk/app/guardar.php',
+                url: 'http://movivet.tk/app/guardar.php',
                 success: function(data){
                     console.log(data);
                     $('#email').val('');
